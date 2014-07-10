@@ -67,7 +67,7 @@ def update_db(metadata):
 		connection = mysql.connector.connect(database = config.get('mysqld', 'database'), user = config.get('mysqld', 'user'), password = config.get('mysqld', 'password'))
 		cursor = connection.cursor()
 
-		query = ("INSERT INTO map_manager_map " 
+		query = ("INSERT INTO sync_center_map " 
 				"(name, projection, min_zoom_level, max_zoom_level, min_y, min_x, max_y, max_x, filename, last_modified) "
 				"VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)")
 		query_data = (metadata.name, metadata.projection, metadata.minZoomLevel, metadata.maxZoomLevel, 
