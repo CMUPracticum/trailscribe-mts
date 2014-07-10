@@ -52,9 +52,10 @@ find 'tiles/.' -name '*.png.aux.xml' -type f -delete
 rm -f 'tiles/googlemaps.html'
 rm -f 'tiles/openlayers.html'
 echo "Creating zip folder..."
-if [ -f $2"_tiles.tgz" ]; then
-	rm -f $2"_tiles.tgz"
+if [ -f $2"_tiles.zip" ]; then
+	rm -f $2"_tiles.zip"
 fi
-tar -czf $2'_tiles.tgz' --exclude='tilemapresource.xml' 'tiles/.'
-mv $2'_tiles.tgz' '/home/scribe/trailscribe/media/map/'$2'_tiles.tgz'
+#tar -czf $2'_tiles.tgz' --exclude='tilemapresource.xml' 'tiles/.'
+zip -9 -q -r --exclude='tilemapresource.xml' $2'_tiles.zip' 'tiles/.'
+mv $2'_tiles.zip' '/home/scribe/trailscribe/media/map/'$2'_tiles.zip'
 echo "Done!"
